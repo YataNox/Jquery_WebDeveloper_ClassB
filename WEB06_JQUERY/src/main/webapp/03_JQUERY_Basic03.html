@@ -32,6 +32,40 @@
             // .요소: enabled
             // .요소: focus
             // .요소: selected
+
+            // $(function(){
+            //     setInterval(function(){
+            //         var value = $("select > option:selected").val();
+            //         alert(value);
+            //     },5000);
+            // })
+
+            /* 위치 필터 선택자 */
+            $(function(){
+                $('tr:odd').css('background', "yellow");
+                $('li:first').css('background', "#ff0");
+                $('li:last').css('background', "#0ff");
+            })
+            // .선택자를 사용해 문서 객체를 선택한 후에 다음과 같은 위치를 지정한다. 
+            //     요소:odd -> 홀수 번째에 위치한 문서 객체 선택.
+            //     요소:even -> 짝수 번째에 위치한 문서 객체 선택.
+            //     요소:first -> 첫 번째에 위치한 문서 객체 선택.
+            //     요소:last -> 마지막에 위치한 문서 객체 선택.
+
+            // 특정 필터 선택자
+            // $("요소선택:first-of-type") : 요소 무리 중 첫 번째 요소 선택
+            // $("요소선택:last-of-type") : 요소 무리 중 마지막 번째 요소 선택
+            // $("요소선택:nth-child(3)") : 요소 무리 중 세 번째 요소 선택
+            // $("요소선택:nth-child(3n)") : 요소 무리 중 3의 배수번째 요소 선택
+            // $("요소선택:nth-last-of-type") : 요소 무리 중 뒤에서 두 번째 선택
+            // $("요소선택:only-child") : 부모 요소내에 자식 요소가 1개뿐인 요소 선택
+            //  -> $("li:only-child") : 부모 요소내에 <li> 요소가 1개뿐인 요소 선택
+            // $("요소선택:eq(index)") : 요소 무리 중 인덱스 번호가 참조하는 요소
+            //  -> $("요소 선택").eq(index)와 같은 표현
+            // $("요소선택:gt(index)") : 요소 무리 중 인덱스 번호보다 큰 인덱스가 참조하는 요소
+            // $("요소선택:lt(index)") : 요소 무리 중 인덱스 번호보다 작은 인덱스가 참조하는 요소
+            // $("요소선택").slice(index, index) : 요소 무리 중 인덱스 변호부터 뒷 쪽 인덱스 번호전까지 참조하는 요소
+
         </script>
     </head>
     <body>
@@ -40,8 +74,36 @@
         <input type="password"><br>
         <input type="radio"><br>
         <input type="checkbox"><br>
-        <input type="file"><br>-->
-        <input type="image" src="images/Koala.jpg" width="100"><br>
+        <input type="file"><br>
+        <input type="image" src="images/Koala.jpg" width="100"><br>-->
+
+        <!-- <select>
+            <option>Apple</option>
+            <option>Bag</option>
+            <option>Cat</option>
+            <option>Dog</option>
+        </select> -->
+
+        <!-- 위치 필터 선택자
+        <h1>탐색 선택자</h1>
+        <ul>
+            <li>내용1</li>
+            <li>내용2</li>
+            <li>내용3</li>
+            <li>내용4</li>
+        </ul>
+        <table border="1">
+            <tr><th>이름</th><th>혈액형</th><th>지역</th></tr>
+            <tr><td>홍길동</td><td>AB형</td><td>서울시 강남구</td></tr>
+            <tr><td>홍길서</td><td>A형</td><td>서울시 마포구</td></tr>
+            <tr><td>홍길남</td><td>B형</td><td>서울시 서초구</td></tr>
+            <tr><td>홍길북</td><td>O형</td><td>서울시 송파구</td></tr>
+            <tr><td>김길동</td><td>O형</td><td>서울시 영등포구</td></tr>
+            <tr><td>이길동</td><td>A형</td><td>서울시 강서구</td></tr>
+            <tr><td>박길동</td><td>B형</td><td>서울시 용산구</td></tr>
+        </table>-->
+
+                
 
 
     </body>
