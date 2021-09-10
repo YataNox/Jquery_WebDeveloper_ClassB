@@ -5,8 +5,44 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>03_JQUERY_Basic03.html</title>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            /* jQuert 속성 선택자
+            // - 기본 선택자 뒤에 붙여 사용.
+            // - 입력 양식과 관련된 태그를 선택할 때 많이 사용
+            $(function(){
+                $('input[type=text]').val("Hello JQuery").css("background", "yellow");
+            })*/
+
+            /* jQuery 필터 선택자 */
+            // 1) 입력 양식 필터 선택자( 상태에 의한)
+            // .input: button
+            // .input: checkbox
+            // .input: radio
+            // .input: file
+            // .input: image -> <input type="image" src=""> : submit 버튼을 이미지로 대신할 때 사용
+            // submmit 버튼을 대신하는 이미지이기 때문에, 경로에 그림이 없으면 "엑박"이 표시되고 옆에
+            // "제출"이라는 말이 같이 표시됩니다.
+            // .input: password
+            // .input: text
+            // .input: submit
+            // .input: reset
+            // .요소: checked
+            // .요소: disabled
+            // .요소: enabled
+            // .요소: focus
+            // .요소: selected
+        </script>
     </head>
     <body>
-        
+        <!-- jQuery 속성 선택자
+        <input type="text"><br>
+        <input type="password"><br>
+        <input type="radio"><br>
+        <input type="checkbox"><br>
+        <input type="file"><br>-->
+        <input type="image" src="images/Koala.jpg" width="100"><br>
+
+
     </body>
 </html>
