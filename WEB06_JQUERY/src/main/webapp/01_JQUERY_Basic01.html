@@ -22,6 +22,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01_JQUERY_Basic01.html</title>
+    <!-- 1. 라이브러리 다운받아 포함하는 방법 : 2가지 방식
+    방법 1 링크 연결
+    <script src="https://code.jquery.com/jquery-3.6.0.js></script>"
+    -->
+    <!-- 방법2 직접 다운로드 -->
+    <script src="script/jquery-3.6.0.js"></script>
+
+    <!-- 사용자가 정의한 스크립트 내용도 별도로 저장해두고 제이쿼리처럼 불러다 쓸 수 있습니다. -->
+    <script src="scripy/Basic.js"></script>
+
+    <script>
+        /* 2. 제이쿼리를 사용한 웹페이지 형식 */
+        // 제이쿼리는 자바스크립트의 확장판이기때문에 작성 영역이 script태그 내부로 똑같습니다.
+
+        // 작성 영역은 똑같지만. 작성된 내용의 시작이 다소 차이가 좀 납니다.
+        // 쉽게 말해서 이 명령은 제이쿼리 명령입니다.라는 영역 표기사 필요합니다.
+        $(document).ready(function(){});
+        // 위 표시는 HTML 이벤트 중 onload와 유사한 동작입니다.
+        // 문서가 준비되면 매개변수로 전달된 익명 함수의 내용을 실행하세요 라는 의미
+
+        // 제이쿼리의 명령은 모두 익명함수 안에 넣어줍니다.
+        // 그 안에 넣지 않은 명령은 제이쿼리로 인식되지 않고, 스크립트 언어로만 인식되어 실행이 되지
+        // 않는 코드가 있을 수 있습니다.
+
+        $(document).ready(function(){});
+        // 이 구문은 여러개가 쓰여도 상관없습니다. 그 안에 명령을 넣지 않으면 제이쿼리 명령은 실행되지 않습니다.
+
+        // 앞으로 위 구문은 아래와 같이 document와 ready를 생략한 후 간결하게 사용합니다.
+        $(function(){}); // $(document).ready(function(){}); 같은 표현
+
+        // 잘못된 예
+        // $("#tit").css("color",""red);        
+
+        // 올바른 예
+        /* $(function(){
+            "#tit".css("color","red"); // id가 tit인 태그의 글자색을 빨간색으로 설정
+        }) */
+
+        // 자바스크립트에서 썼던 문법 다 사용이 가능하고, 추가로 제이쿼리 사용을 하는 형식입니다.
+
+        $(function(){
+            $("body").css("background-color", "#00FFFF");
+        })
+    </script>
 </head>
 <body>
     
