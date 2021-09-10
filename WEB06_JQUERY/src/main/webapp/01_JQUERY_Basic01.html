@@ -64,10 +64,50 @@
 
         $(function(){
             $("body").css("background-color", "#00FFFF");
+            // 제이쿼리의 명령의 일반 형식
+            // 선택자로 대상 선택. 스타일 또는 구성 요소 선택(변경 내용 지정)
+        })
+
+        /* 3. jQuery 기본 선택자 */
+        // - jQuery 메소드의 가장 기본적인 형태
+        // - 문서 객체를 다룰 때 사용하는 형태
+        // 1) 전체 선택자(*)
+        $(function(){
+            $("*").css("border","1px solid blue");
+            // .css 안에 스타일 요소명과 적용할 값들을 따옴표로 묶어서 위와 같이 넣으면, 해당 선택자에서 지목한 태그에 적용됩니다.
+        })
+
+        // 2) 태그 선택자
+        $(function(){
+            $("h3").css("background-color", "#00f").css("border","2px dashed #f00");
+            // .css가 끝난 곳에 .css를 이어서 사용하면 다른 스타일도 적용이 가능합니다.
+        })
+        // 두 개 이상의 태그 선택
+        $(function(){
+            $("h1, h2").css("background-color", "#DDDDDD").css("border", "2px dashed #00f");
+        })
+
+        // 3) 아이디 선택자
+        $(function(){
+            $("#tit").css("background-color", "#ff0").css("border", "2px solid #f00").css("font-size","250%");
+        })
+
+        // 4) 클래스 선택자
+        $(function(){
+            $(".tit2").css("background-color", "#ff0").css("border", "2px solid #f00").css("font-size","250%");
+        })
+
+        // 종속 선택자
+        $(function(){
+            $("h1#tit").css("color", "red");
         })
     </script>
 </head>
 <body>
-    
+    <h1 id="tit">제목</h1>
+    <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h3>직접 선택자</h3>
+    <h1 class="tit2">제목</h1>
 </body>
 </html>
