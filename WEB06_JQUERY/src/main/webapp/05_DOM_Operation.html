@@ -194,24 +194,93 @@
                 // 자식 구성요소가 제거되어 div는 존재하지만 표시할 내용이 없어 안나오는 것처럼 보이는 상태
             */
 
-           /* ------------------------------------------------------------------------------------------------------------ */
-           /* 11. 문서 객체의 생성(1) */
-           // document.createElement()  document.createTextNode() -> 자바스크립트에서 사용하던 문서 객체 생성함수
-           // 제이쿼리에서 문서 객체를 생성하는 메소드.
-           // - $(): 문서 객체 생성.
-           // - $() 함수의 매개 변수에 HTML 태그 자체를 문자열로 넣기만 하면 해당 태그의 문서 객체가 생성됨.
-           // - 생성한 문서 객체를 body 태그에 추가하는 방법1.
-           $(function(){
-               $('<h1></h1>').html("Hello jQuery~!!").appendTo("body");
-           });
-           // - $() 메소드의 내부에 HTML 태그를 바로 넣어 body 태그에 추가하는 방법2
-           $(function(){
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 11. 문서 객체의 생성(1) 
+            // document.createElement()  document.createTextNode() -> 자바스크립트에서 사용하던 문서 객체 생성함수
+            // 제이쿼리에서 문서 객체를 생성하는 메소드.
+            // - $(): 문서 객체 생성.
+            // - $() 함수의 매개 변수에 HTML 태그 자체를 문자열로 넣기만 하면 해당 태그의 문서 객체가 생성됨.
+            // - 생성한 문서 객체를 body 태그에 추가하는 방법1.
+            $(function(){
+                $('<h1></h1>').html("Hello jQuery~!!").appendTo("body");
+            });
+            // - $() 메소드의 내부에 HTML 태그를 바로 넣어 body 태그에 추가하는 방법2
+            $(function(){
                 $('<h1>Hello jQuery...</h1>').appendTo('body');
                 // var header1 = document.createElement('h1');
                 // var textNode = document.createTextNode("Hello jQuery");
                 // header1.appendChild(textNode);
                 // document.body.appendChild(header1);
-           });
+            });*/
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 12. 문서 객체의 생성(2) 
+                // - 텍스트 노드를 갖지 않는 문서 객체를 생성하는 방법.
+                $(function(){
+                    $('<img>').attr({"src" : 'images/Koala.jpg', "width":'200'}).appendTo('body');
+                });
+                $(function(){
+                    $('<img>').attr({"src" : 'images/Penguins.jpg'}).appendTo('body');
+                });
+            */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 13. 문서 객체의 삽입(1) */
+            // - $(A).appendTo(B) : A를 B의 뒷부분(자식요소)에 추가한다.
+            // - $(A).prependTO(B) : A를 B의 앞부분(자식요소)에 추가한다.
+            // - $(A).insertAfter(B) : A를 B의 뒤(형제요소)에 추가한다.
+            // - $(A).insertBefore(B) : A를 B의 앞(형제요소)에 추가한다.
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 14. 문서 객체의 삽입(2) */
+            // - $(A).append(B) : B를 A의 뒷 부분에 추가한다.
+            // - $(A).prepend(B) : B를 A의 앞 부분에 추가한다.
+            // - $(A).after(B) : B를 A의 뒤에 추가한다.
+            // - $(A).before(B) : B를 A의 앞에 추가한다.
+
+            // - 1. $(selector).append(content, content, ....... , content)
+            /* $(function(){
+                var h1 = '<h1>Header ~~ 1</h1>';
+                var h2 = '<h2>Header ~~ 2</h2>';
+                $('body').append(h1, h2, h1, h2);
+            }); // 전달내용.appendTo(목적지) ---- 목적지.append(전달내용) */
+
+            // - 2. $(selector).append(function(index){});
+            /* $(function(){
+                var content = ['홍길동', '김길동', '박길동'];
+                $.each(content, function(index, value){
+                    $('#name_region').append($('<li>' + value + '</li>'));
+                });
+            }); // 목적지 : #name_region 전달내용 : 배열에 있는 값들을 li태그에 넣는 개체들 */
+
+            // - 3.
+            /* $(function(){
+                $('<div>이길동</div>').insertAfter($('header'));
+            }) */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 15. 문서 객체의 이동 */
+            // - 기존에 존재하는 문서 객체를 선택하고 문서 객체 삽입 메소드를 사용하면, 문서 객체를 쉽게 다른 곳으로 이동시킬 수 있다.
+            $(function(){
+                $('img').css('width', '200');
+                setInterval(function(){
+                    $('img').first().appendTo('body'); // 첫 번째 그림은 집어서 body의 맨뒤로
+                }, 1000);
+            });
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 16. 문서 객체의 복제 및 이동 */
+                // - 기본 문서 객체를 선택하고 문서 객체 삽입 메소드를 사용하면, 문서 객체가 이동
+                $(function(){
+                    $('div').append($('h1'));
+                });
+                // - clone() : 문서 객체 복제.
+                // - $(selector).clone()
+                // - $(selector).clone(Boolean dataAndEvents)
+                // - $(selector).clone(Boolean dataAndEvents, Boolean deepDataAndEvents)
+                $(function(){
+                    $('div').append($('h1').clone());
+                });
         </script>
     </head>
     <body>
@@ -261,5 +330,30 @@
             <h1>Header - 1</h1>
         </div> -->
         
+        <!-- 14. 문서 객체의 삽입(2)
+        <div>
+            <b>데이터</b>
+            <ul id="name_region"></ul>
+        </div>-->
+
+        <!-- 14. 문서 객체의 삽입(3)
+        <header>
+            <h1>데이터</h1>
+        </header><br> -->
+
+        <!-- 15. 문서 객체의 이동 
+        <img src="images/Chrysanthemum.jpg">
+        <img src="images/Desert.jpg">
+        <img src="images/Hydrangeas.jpg">
+        <img src="images/Koala.jpg">
+        <img src="images/Penguins.jpg">
+        <img src="images/Tulips.jpg"> -->
+
+        <!-- 16. 문서 객체의 복제 및 이동 -->
+        <h1>Header - 0</h1>
+        <h2>Header - 1</h2>
+        <hr>
+        <div></div>
+        <hr>
     </body>
 </html>
