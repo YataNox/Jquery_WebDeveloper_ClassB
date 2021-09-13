@@ -92,6 +92,16 @@
             // 가로세로 비율은 원본 이미지 비율이 적용
             */
 
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 6. 문서 객체의 스타일 검사 */
+                // - css() : 스타일과 관련된 모든 기능을 수행.
+            $(function(){
+                var color = $('h1:eq(1)').css('background-color')
+                var header1 = document.createElement('h1');
+                var textNode = document.createTextNode(color);
+                header1.appendChild(textNode);
+                document.body.appendChild(header1);
+            })
         </script>
     </head>
     <body>
@@ -101,12 +111,17 @@
         <h1>Header-2</h1> -->
 
         <!-- 2. 문서 객체의 속성 제거 -->
-        <!-- 3. 4. 문서 객체의 속성 검사/추가 -->
+        <!-- 3. 4. 문서 객체의 속성 검사/추가
         <h1 class="item_1">Koala.jpg</h1>
         <img src="images/Koala.jpg" width="150">
         <h1 class="item_2">Penguins.jpg</h1>
         <img src="images/Penguins.jpg" width="150">
         <h1 class="item_3">Tulips.jpg</h1>
-        <img src="images/Tulips.jpg" width="150">
+        <img src="images/Tulips.jpg" width="150">-->
+
+        <!-- 6. 문서 객체의 스타일 검사 -->
+        <h1 class="item_1">Header-0</h1>
+        <h1 class="item_2">Header-1</h1>
+        <h1 class="item_3">Header-2</h1>
     </body>
 </html>
