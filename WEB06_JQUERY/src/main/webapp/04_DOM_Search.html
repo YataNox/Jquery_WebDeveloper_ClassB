@@ -5,8 +5,44 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>04_DOM_Search.html</title>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            // DOM은 자바스크립트보다 제이쿼리에서 훨씬 활용도가 높습니다.
+            // 선택자 및 필터링으로서의 DOM
+            /* 1. 기본 필터링 메소드 
+                // - filter() 메소드 사용 두 가지 형태
+                // 1) $(selector).filter(selector);
+                // 2) $(selector).filter(function(index){});
+            $(function(){
+                $('h3:even').css({'backgroundColor': 'black', "color":'white'});
+            }) // 선택자의 홀수번재 css 변경
+
+            // 위의 예제는 아래의 예제를 줄여서 쓴 것과 같습니다.
+            // filter()메소드 적용 형태1.
+            $(function(){
+                $('h3').filter(':odd').css({'backgroundColor': 'red', "color":'white'});
+                // $('h3:odd').css({'backgroundColor': 'red', "color":'white'});
+            })*/
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            // filter()메소드 적용 형태2.
+            $(function(){
+                $('h3').filter(function(index){
+                    return index % 3 == 0;
+                }).css({"backgroundColor" : 'blue', "color":"white"});
+            })
+            // 인덱스를 3의 배수로만 골라내서(index를 연산한 결과 true/false가 리턴되어 사용할 인덱스인지 지나갈 인덱스 인지를 판단)
+            // 익명함수 실행
+
+        </script>
     </head>
     <body>
-        
+        <!-- 문서 개체 필터링 - 체이닝 - 종료 -->
+        <h3>Header - 0</h3>
+        <h3>Header - 1</h3>
+        <h3>Header - 2</h3>
+        <h3>Header - 3</h3>
+        <h3>Header - 4</h3>
+        <h3>Header - 5</h3>
     </body>
 </html>
