@@ -93,7 +93,7 @@
             */
 
             /* ------------------------------------------------------------------------------------------------------------ */
-            /* 6. 문서 객체의 스타일 검사 */
+            /* 6. 문서 객체의 스타일 검사 
                 // - css() : 스타일과 관련된 모든 기능을 수행.
             $(function(){
                 var color = $('h1:eq(1)').css('background-color')
@@ -102,6 +102,84 @@
                 header1.appendChild(textNode);
                 document.body.appendChild(header1);
             })
+            */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 7. 문서 객체의 스타일 추가
+            // - 사용 형태 3가지
+                // 1) $(selector).css(name, value);
+                $(function(){
+                    $('h1').css('color', 'red');
+                });
+
+                // 2) $(selector).css(name, function(index){ });
+                // . 선택자로 선택한 문서 객체에 개별적으로 스타일 속성을 적용하고 싶을 때 사용하는 방법.
+                $(function(){
+                    var color = ['red', 'green', 'blue'];
+                    $('h1').css('color', function(index){
+                        return color[index];
+                    });
+                });
+
+                // 3) $(selector).css(object);
+                $(function(){
+                    var color = ['red', 'green', 'blue'];
+                    $('h1').css({
+                        // color : "white"
+                        color : function(index){
+                            return color[index];
+                        } ,background :'black'
+                    });
+                });
+                */
+            
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 8. 문서 객체의 내부 검사
+                // - 기본 자바스크립트에서 문서 객체의 innerHTML 속성과 관련된 jQuery 메소드.
+                // - 1) html() : 문서 객체 내부의 글자와 관련된 모든 기능을 수행.
+                $(function(){
+                    var html = $('h1').html();
+                    var header1 = document.createElement('h1');
+                    var textNode = document.createTextNode(html);
+                    header1.appendChild(textNode);
+                    document.body.appendChild(header1);
+                }); // 선택자의 첫 번째를 대상으로 합니다.
+
+                // - 2) text();
+                // . 문서 객체 내부의 글자와 관련된 모든 기능을 수행.
+                // . 선택자로 선택한 모든 문서 객체의 글자를 가져와 출력.
+                $(function(){
+                    var text = $('h1').text();
+                    var header1 = document.createElement('h1');
+                    var textNode = document.createTextNode(text);
+                    header1.appendChild(textNode);
+                    document.body.appendChild(header1);
+                }) // 선택자의 전체를 대상으로 합니다.
+            */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 9. 문서 객체의 내부 추가
+                // 1) $(selector).html(value); -> HTML태그를 인식해 문자열 삽입.
+                //    $(selector).text(value); -> HTML태그를 인식하지 않음.
+                $(function(){
+                    $('.useHtml').html('<h1>$().html()</h1>');
+                }); // 태그 인식
+                $(function(){
+                    $('.useText').text('<h1>$().text()</h1>');
+                }); // 태그 미인식
+
+                // 2) $(selector).html(function(index, html){});
+                //    $(selector).text(function(index, html){});
+                $(function(){
+                    $('h1').html(function(index, html){
+                        return '※' + html + '※';
+                    });
+                    $('h2').html(function(index, html){
+                        return '※' + html + '※';
+                    });
+                })
+            */
         </script>
     </head>
     <body>
@@ -119,9 +197,30 @@
         <h1 class="item_3">Tulips.jpg</h1>
         <img src="images/Tulips.jpg" width="150">-->
 
-        <!-- 6. 문서 객체의 스타일 검사 -->
+        <!-- 6. 문서 객체의 스타일 검사
         <h1 class="item_1">Header-0</h1>
         <h1 class="item_2">Header-1</h1>
         <h1 class="item_3">Header-2</h1>
+        -->
+        <!-- 7/8. 문서 객체의 스타일 추가 
+        <h1>Header-0</h1>
+        <h1>Header-1</h1>
+        <h1>Header-2</h1> -->
+
+        <!-- 9-1. 문서 객체의 내부 추가 -->
+        <div class="useHtml"></div>
+        <div class="useHtml"></div>
+        <div class="useHtml"></div>
+        <div class="useText"></div>
+        <div class="useText"></div>
+        <div class="useText"></div>
+        <!-- 9-2. 문서 객체의 내부 추가 -->
+        <h1>Header-0</h1>
+        <h1>Header-1</h1>
+        <h1>Header-2</h1>
+        <h2>Header-0</h2>
+        <h2>Header-1</h2>
+        <h2>Header-2</h2>
+        
     </body>
 </html>
