@@ -6,11 +6,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>05_DOM_Operation.html</title>
         <script src="script/jquery-3.6.0.js"></script>
+        <style>
+            .item_1{background-color: red; color: white;}
+            .item_2{background-color: pink; color: white;}
+            .item_3{background-color: orange; color: white;}
+        </style>
         <script>
-            
+            /* 1. 문서 객체의 클래스 속성 추가 
+                // addClass() : 문서 객체의 클래스 속성을 추가.
+                // 예제1. 매개변수에 문자열(클래스 이름) 입력.
+                $(function(){
+                    $('h1').addClass('item_1');
+                }); // 전체 h1태그에 하나의 클래스 적용
+                // 예제2. 매개변수에 클래스 이름으로 된 문자열을 리턴하는 익명 함수 입력.
+                $(function(){
+                    $('h1').addClass(function(index){
+                        return 'item_' + (index+1);
+                    });
+                }); // 각각의 h1에 다른 클래스 적용, 익명함수의 리턴 값이 addClass에 전달인수로 전달되었습니다.
+            */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 2. 문서 객체의 클래스 속성 제거 */
+                // - removeClass() : 문서 객체의 클래스 속성을 제거.
+            $(function(){
+                $('h1').removeClass(function(index){
+                    if(index==0){
+                        return 'item_' + (index+1);
+                    }
+                });
+            }); // 문자 연산으로 만들어진 클래스 이름으로 각 h1 태그의 클래스를 제거합니다.
+            // function(index){return 'item_' + (index+1)} // h1 태그의 문자로 조합된 클래스 이름을 모두 제거.
+            // 대상 태그의 첫 번째는 item_1클래스 제거, 두 번째는 item_2클래스 제거, 세번째는 item_3 제거.
+            // 위에서는 if문에 의해서 h1의 0번째 인덱스에 적용된 클래스 값만 적용된 곳에서 제거합니다.
         </script>
     </head>
     <body>
-        
+        <!-- 1. 문서 객체의 클래스 속성 추가
+        <h1>Header-0</h1>
+        <h1>Header-1</h1>
+        <h1>Header-2</h1> -->
+
+        <!-- 2. 문서 객체의 속성 제거 -->
+        <!-- 3. 4. 문서 객체의 속성 검사/추가 -->
+        <h1 class="item_1">Koala.jpg</h1>
+        <img src="images/Koala.jpg" width="150">
+        <h1 class="item_2">Penguins.jpg</h1>
+        <img src="images/Penguins.jpg" width="150">
+        <h1 class="item_3">Tulips.jpg</h1>
+        <img src="images/Tulips.jpg" width="150">
     </body>
 </html>
