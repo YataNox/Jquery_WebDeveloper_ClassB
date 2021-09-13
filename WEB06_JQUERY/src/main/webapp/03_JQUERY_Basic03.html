@@ -83,7 +83,7 @@
             }) */
 
             /* ------------------------------------------------------------------------------------------------------------ */
-            /* jQuery를 사용한 배열 관리(1) */
+            /* jQuery를 사용한 배열 관리(1)
             // - each() 메소드 사용
             // . 매개 변수로 입력한 함수 사용
             // . for in 반복문처럼 객체나 배열의 요소 검사하는 메도스
@@ -106,10 +106,10 @@
                     document.body.innerHTML += output;   
                     // 그것을 body 내용으로 삽입합니다.
                 });
-            })
+            })*/
 
             /* ------------------------------------------------------------------------------------------------------------ */
-            $(function(){
+            /* $(function(){
                 var m_days = [31,28,31,30,31,30,31,31,30,31,30,31];
                 // 특정 배열을 대상으로 하는 반복 실행, m_days 배열의 값을 하나씩 item 변수에 전달하면 반복을 진행.
                 // index는 그때 그때의 첨자(인덱스). 배열을 대상으로 하는 반복 실행
@@ -118,8 +118,36 @@
                     output += (index+1) + "월 마지막 날짜 : " + item + "일" + "<br>";
                     document.body.innerHTML += output;
                 })
+            }) */
+
+            /* jQuery를 사용한 배열 관리(2) & 제이쿼리 명령으로 태그에 class 추가 및 제거
+            $(function(){
+                $('h1').addClass("high_light");
+                // h1태그에 class="high-light"를 추가하세요.
+                // <h1>item - 0 </h1> => <h1 class="high-light">item - 0</h1>으로 변경
             })
+            */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            // - 각 h1태그에 서로다른 class를 추가한다면,
+            $(function(){
+                $('h1:eq(0)').addClass("high_light-0");
+                $('h1').eq(1).addClass("high_light-1");
+                $('h1').eq(2).addClass("high_light-2");
+                $('h1').eq(3).addClass("high_light-3");
+                $('h1').eq(4).addClass("high_light-4");
+            })
+
         </script>
+        <style>
+            /* jQuery를 사용한 배열 관리(2) */
+            .high_light{background-color: yellow;}
+            .high_light-0{background-color: yellow;}
+            .high_light-1{background-color: orange;}
+            .high_light-2{background-color: blue;}
+            .high_light-3{background-color: green;}
+            .high_light-4{background-color: red;}
+        </style>
     </head>
     <body>
         <!-- ------------------------------------------------------------------------------------------------------------  -->
@@ -181,5 +209,12 @@
             <li>내용9</li>
             <li>내용10</li>        
         </ul> -->
+
+        <!-- jQuery를 사용한 배열 관리(2) -->
+        <h1>item - 0</h1>
+        <h1>item - 1</h1>
+        <h1>item - 2</h1>
+        <h1>item - 3</h1>
+        <h1>item - 4</h1>
     </body>
 </html>
