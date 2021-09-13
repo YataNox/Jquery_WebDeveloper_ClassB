@@ -180,6 +180,38 @@
                     });
                 })
             */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 10. 문서 객체의 내부 제거 
+                // 1) remove(): 특정 문서 객체를 제거.
+                // 2) empty() : 특정 문서 객체의 후손을 모두 제거.
+                $(function(){
+                    $('h1').remove(); // 첫 번째 요소를 제거
+                }); // h1 태그 자체가 사라져서 안보이는 상태
+                $(function(){
+                    $('div').empty();
+                }); // div 태그 내의 모든 자식 구성요소를 제거 현재는 h1 태그들이 사라집니다.
+                // 자식 구성요소가 제거되어 div는 존재하지만 표시할 내용이 없어 안나오는 것처럼 보이는 상태
+            */
+
+           /* ------------------------------------------------------------------------------------------------------------ */
+           /* 11. 문서 객체의 생성(1) */
+           // document.createElement()  document.createTextNode() -> 자바스크립트에서 사용하던 문서 객체 생성함수
+           // 제이쿼리에서 문서 객체를 생성하는 메소드.
+           // - $(): 문서 객체 생성.
+           // - $() 함수의 매개 변수에 HTML 태그 자체를 문자열로 넣기만 하면 해당 태그의 문서 객체가 생성됨.
+           // - 생성한 문서 객체를 body 태그에 추가하는 방법1.
+           $(function(){
+               $('<h1></h1>').html("Hello jQuery~!!").appendTo("body");
+           });
+           // - $() 메소드의 내부에 HTML 태그를 바로 넣어 body 태그에 추가하는 방법2
+           $(function(){
+                $('<h1>Hello jQuery...</h1>').appendTo('body');
+                // var header1 = document.createElement('h1');
+                // var textNode = document.createTextNode("Hello jQuery");
+                // header1.appendChild(textNode);
+                // document.body.appendChild(header1);
+           });
         </script>
     </head>
     <body>
@@ -207,20 +239,27 @@
         <h1>Header-1</h1>
         <h1>Header-2</h1> -->
 
-        <!-- 9-1. 문서 객체의 내부 추가 -->
+        <!-- 9-1. 10. 문서 객체의 내부 추가 
         <div class="useHtml"></div>
         <div class="useHtml"></div>
         <div class="useHtml"></div>
         <div class="useText"></div>
         <div class="useText"></div>
-        <div class="useText"></div>
-        <!-- 9-2. 문서 객체의 내부 추가 -->
+        <div class="useText"></div> -->
+
+        <!-- 9-2. 10. 문서 객체의 내부 추가 
         <h1>Header-0</h1>
         <h1>Header-1</h1>
         <h1>Header-2</h1>
         <h2>Header-0</h2>
         <h2>Header-1</h2>
-        <h2>Header-2</h2>
+        <h2>Header-2</h2> -->
+
+        <!-- 10. 문서 객체의 내부 제거
+        <div>
+            <h1>Header - 0</h1>
+            <h1>Header - 1</h1>
+        </div> -->
         
     </body>
 </html>
