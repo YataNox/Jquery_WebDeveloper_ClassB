@@ -24,9 +24,9 @@
         <script>
             $(function(){
                 $('button').click(function(){
-                    $('div').css('opacity', "1");
+                    $('div').fadeTo(0,1.0);
                 });
-                $('#red').click(function(){
+                /* $('#red').click(function(){
                     $(this).css('opacity', "0.3");
                 });
                 $('#green').click(function(){
@@ -34,6 +34,9 @@
                 });
                 $('#blue').click(function(){
                     $(this).css('opacity', "0.3");
+                }); */
+                $('div').click(function(){
+                    $(this).fadeTo(1000,0.1);
                 });
             });
         </script>
