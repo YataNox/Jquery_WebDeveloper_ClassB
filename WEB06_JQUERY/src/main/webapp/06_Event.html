@@ -5,6 +5,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>06_Event.html</title>
+        <style>
+            .reverse{
+                background-color: black; color: white;
+            }
+            .outer{
+                width: 200px; height: 100px; 
+                background-color: orange;
+                padding: 50px; marign: 10px;
+            }
+            .inner{
+                width: 100%; height: 100%; 
+                background-color: pink;
+            }
+        </style>
+
         <script src="script/jquery-3.6.0.js"></script>
         <script>
             /* 1. 이벤트 연결1 
@@ -84,14 +99,62 @@
             */
 
             /* ------------------------------------------------------------------------------------------------------------ */
-            
-        </script>
+            /* 5. 이벤트 강제 발생
+            // - 사용 형태
+            // 1) $(selector).trigger(eventName);
+            $(function(){
+                $('h1').click(function(){
+                    $(this).html(function(index, html){
+                        return html + ">";
+                    });
+                });
+                setInterval(function(){
+                    $('h1').last().trigger('click'); // $('h1').last().click();
+                }, 3000);
+            });
+            */
 
-        <style>
-            .reverse{
-                background-color: black; color: white;
-            }
-        </style>
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 6. 마우스 이벤트 
+            // - click : 마우스 클릭할 때 이벤트 발생.
+            // - dbclick : 마우스 더블클릭할 때 이벤트 발생.
+            // - mousedown : 마우스 버튼을 누를 때 이벤트 발생.
+            // - mouseup : 마우스 버튼을 뗄 때 이벤트 발생.
+            // - mouseenter : 마우스가 요소의 경계 외부에서 내부로 이동할 때 발생.
+            // - mouseleave : 마우스가 요소의 경계 외부에서 외부로 이동할 때 발생.
+            // - mousemove : 마우스를 움직일 때 발생.
+            // - mouseout : 마우스가 요소를 벗어날 때 발생.
+            // - mouseover : 마우스가 요소 안에 들어올 때 발생.
+            $(function(){
+                $('.outer').mouseover(function(){
+                    $('body').append('<h1>MouseOver</h1>');
+                }).mouseenter(function(){
+                    $('body').append('<h1>MouseEnter</h1>');
+                });
+            });
+            */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 7. 키보드 이벤트 */
+            // - keydown : 키보드가 눌러질 때 발생. // keypress : 글자가 입력될 때 발생(한글 지원 x).
+            // - keyup : 키보드가 떼어질 때 발생.
+            $(function(){
+                $('textarea').keyup(function(event){
+                    var inputlength = $(this).val().length; // textarea에서 글자를 얻어 글자 갯수를 구하고 저장
+                    var remain = 150 - inputlength; // 150 - 글자 수 계산
+                    $('h1').html(remain); // 남은 글자 표시
+                    if(remain >= 0){
+                        $('h1').css('color','black'); // 양수는 검정색
+                    }
+                    else{
+                        $('h1').css('color','red'); // 음수는 빨간색
+                    }
+                });
+            });
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+
+        </script>
     </head>
     <body>
         <!-- 1/2/3. 이벤트 연결/제거
@@ -99,9 +162,28 @@
         <h1>Header-1</h1>
         <h1>Header-2</h1> -->
 
-        <!-- 4. 매개변수 context -->
+        <!-- 4. 매개변수 context
         <div><h1>Header1</h1><p>Paragraph1</p></div>
         <div><h1>Header2</h1><p>Paragraph2</p></div>
-        <div><h1>Header3</h1><p>Paragraph3</p></div>
+        <div><h1>Header3</h1><p>Paragraph3</p></div> -->
+
+        <!-- 5-1). 이벤트 강제 발생 -
+        <h1>Start : </h1>
+        <h1>Start : </h1> -->
+        <!-- 5-2). 이벤트 강제 발생 -->
+        <!-- <h1>Trigger</h1> -->
+
+        <!-- 6. 마우스 이벤트
+        <div class="outer">
+            <div class="inner"></div>
+        </div>
+        -->
+
+        <!-- 7. 키보드 이벤트 -->
+        <div>
+            <p>지금 내 생각을 </p>
+            <h1>150</h1>
+            <textarea cols="70" rows="5"></textarea>
+        </div>
     </body>
 </html>
