@@ -16,7 +16,7 @@
                 font-size: 36px;
                 text-align: center;
                 color: yellow; background-color: red;
-                padding-top: 25; top: 0px; left: 0px;
+                padding-top: 25px; top: 0px; left: 0px;
                 display: none;
             }
             span{
@@ -25,7 +25,20 @@
         </style>
         <script src="script/jquery-3.6.0.js"></script>
         <script>
-
+            $(function(){
+                $('#fadeIn').click(function(){
+                    $('div').fadeIn(1000);
+                    $('span').fadeIn(1000);
+                });
+                $('#fadeOut').click(function(){
+                    $('div').fadeOut(1000);
+                    $('span').fadeOut(1000);
+                });
+                $('#fadeToggle').click(function(){
+                    $('div').fadeToggle(1000);
+                    $('span').fadeToggle(1000);
+                });
+            });
         </script>
     </head>
     <body>
