@@ -7,8 +7,39 @@
         <title>06_Event.html</title>
         <script src="script/jquery-3.6.0.js"></script>
         <script>
-
+            /* 1. 이벤트 연결1 
+            // 기본(자바스크립트)의 이벤트 연결은 태그안에 onClick등의 속성을 넣고, 자바스크립트 함수를 연결해서 실행되게 하는 방식이라면,
+            // 제이쿼리는 직접 선택자와 이벤트 이름을 연결하고, 익명함수로 동작을 정의해서 실행되게 합니다.
+                // - on()
+                // - 사용 형태
+                // 1) $(selector).on(eventName, function(event){});
+                // selector에 eventName이 발생하면, function(event){}함수 실행
+                $(function(){ // h1에 click이 발생하면 function(event){} 실행
+                    $('h1').on('click', function(event){
+                        var k = $(this).index(); // 클릭된 h1 태그의 인덱스를 얻어낼 때 쓰는 함수 $(this).index();
+                        $(this).html(function(index, html){
+                            return html + k;
+                        }); // $(this) : 여러개의 h1 중에서 현재 클릭된 h1(click의 주체 h1)
+                    });
+                });
+            */  
+                // 2) $(selector).on(object); // 두 가지 이상의 이벤트와 그에 따른 실행 함수 지정
+                $(function(){
+                    $('h1').on({
+                        mouseenter:function(){$(this).addClass('reverse')},
+                        mouseleave:function(){$(this).removeClass('reverse')}
+                    }); // h1에 마우스가 올라가면 reverse 클래스를 추가, 밖으로 나가면 클래스 제거
+                });
+           
+            /* ------------------------------------------------------------------------------------------------------------ */
+            
+            
         </script>
+        <style>
+            .reverse{
+                background-color: black; color: white;
+            }
+        </style>
     </head>
     <body>
         <!-- 1/2/3. 이벤트 연결/제거 -->
