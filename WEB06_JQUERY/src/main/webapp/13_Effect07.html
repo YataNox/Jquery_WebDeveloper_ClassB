@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>13_Effect07.html</title>
+        <style>
+            div{
+                width: 80px; height: 80px;
+                margin: 3px; float: left;
+            }
+            #red{
+                background-color: #ff0000;
+            }
+            #green{
+                background-color: #00ff00;
+            }
+            #blue{
+                background-color: #0000ff;
+            }
+        </style>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            $(function(){
+                $('button').click(function(){
+                    $('div').css('opacity', "1");
+                });
+                $('#red').click(function(){
+                    $(this).css('opacity', "0.3");
+                });
+                $('#green').click(function(){
+                    $(this).css('opacity', "0.3");
+                });
+                $('#blue').click(function(){
+                    $(this).css('opacity', "0.3");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <button>원래대로</button><br>
+        <div id="red"></div>
+        <div id="green"></div>
+        <div id="blue"></div>
+    </body>
+</html>
