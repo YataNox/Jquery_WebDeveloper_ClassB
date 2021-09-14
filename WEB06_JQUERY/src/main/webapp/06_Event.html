@@ -22,7 +22,7 @@
                         }); // $(this) : 여러개의 h1 중에서 현재 클릭된 h1(click의 주체 h1)
                     });
                 });
-            */  
+              
                 // 2) $(selector).on(object); // 두 가지 이상의 이벤트와 그에 따른 실행 함수 지정
                 $(function(){
                     $('h1').on({
@@ -30,11 +30,63 @@
                         mouseleave:function(){$(this).removeClass('reverse')}
                     }); // h1에 마우스가 올라가면 reverse 클래스를 추가, 밖으로 나가면 클래스 제거
                 });
-           
+            */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 2. 이벤트 연결2 
+            // - hover() : mouseenter 이벤트와 mouseleave 이벤트를 동시에 연결.
+            // - $(selector).hover(function(event){}, function(event){});
+            $(function(){
+                $('h1').hover(
+                    function(event){
+                         $(this).addClass('reverse');
+                    },
+                    function(event){
+                        $(this).removeClass('reverse');
+                    }
+                );
+            });
+            */
+            
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 3. 이벤트 제거
+            $(function(){
+                $('h1').on('click', function(){
+                    $(this).html("CLICK"); // 내용을 CLICK으로 변경
+                    $(this).off(); // 이벤트 제거
+                });
+            });
+
+            // $('h1').on('click', function(){});
+            // 위 명령은 아래와 같이 바꿔서 쓸 수 있습니다.
+            // $('h1').click(function(){});
+            */
+
+            /* ------------------------------------------------------------------------------------------------------------ */
+            /* 4. 매개변수 context
+                // - $(selector, context)
+                // . context:selector가 적용하는 범위를 한정.
+                // . 특정 부분의 선택자를 선택하고 싶을 때 사용하느 매개변수.
+
+                // 아래의 내용은 클릭된 div 안에 h1과 p를 선택자로 쓰고자 할 때.....
+                // 자손 선택자를 사용하고자 하는데, 부모가 this라면....
+                // $('this h1') x this가 ''안에 들어가는 순간 this로 사용이 안됩니다. 그냥 문자('this')로 인식
+                $(function(){
+                    $('div').click(function(){
+                        // div 중 클릭된 div를 this로 표현 -> 아래는 h1 중 click된 div 속 h1을 지정합니다.
+                        var header = $('h1', this).text(); // h1 중 클릭된 div 내부의 h1 내용(text)
+                        var Paragraph = $('p', this).text(); // p들 중 클릭된 div 내부의 p 내용(text)
+                        // alert(header + " : " + Paragraph);
+                        var k = header + " : " + Paragraph;
+                        $('body').append($('<h1>' + k + '</h1>'));
+                    });
+                });
+            */
+
             /* ------------------------------------------------------------------------------------------------------------ */
             
-            
         </script>
+
         <style>
             .reverse{
                 background-color: black; color: white;
@@ -42,9 +94,14 @@
         </style>
     </head>
     <body>
-        <!-- 1/2/3. 이벤트 연결/제거 -->
+        <!-- 1/2/3. 이벤트 연결/제거
         <h1>Header-0</h1>
         <h1>Header-1</h1>
-        <h1>Header-2</h1>
+        <h1>Header-2</h1> -->
+
+        <!-- 4. 매개변수 context -->
+        <div><h1>Header1</h1><p>Paragraph1</p></div>
+        <div><h1>Header2</h1><p>Paragraph2</p></div>
+        <div><h1>Header3</h1><p>Paragraph3</p></div>
     </body>
 </html>
