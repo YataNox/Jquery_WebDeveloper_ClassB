@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>19_ImageControll03.html</title>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            // 마우스로 이미지를 클릭할 때 마다 파일이 바뀌도록 코딩하세요. 파일이름은 1.jpg ~ 10.jpg입니다.
+            // 10 다음으로 다시 1로 돌아옵니다.
+            $(function(){
+                var imgall = ["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg", "images/7.jpg", "images/8.jpg", "images/9.jpg", "images/10.jpg"];
+                var n = 1;
+                $('img').click(function(){
+                    $(this).attr('src', imgall[n++]);
+                    if(n == imgall.length){
+                        n = 0;
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <img src="images/1.jpg">
+    </body>
+</html>
