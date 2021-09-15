@@ -8,14 +8,23 @@
         <script src="script/jquery-3.6.0.js"></script>
         <script>
             $(function(){
-                $('img').hover(function(){
+                /* $('img').hover(function(){
                     var ied = $(this).index();
                     $(this).attr('src', 'images/' + (ied+3) + '.jpg');
                 });
                 $('img').mouseout(function(){
                     var ied = $(this).index();
                     $(this).attr('src', 'images/' + (ied+1) + '.jpg');
-                });
+                }); */
+                $('img').hover(
+                    function(){
+                        var ied = $(this).index();
+                        $(this).attr('src', 'images/' + (ied+3) + '.jpg');
+                    },
+                    function(){
+                        var ied = $(this).index();
+                        $(this).attr('src', 'images/' + (ied+1) + '.jpg');
+                    });
             });
         </script>
     </head>
