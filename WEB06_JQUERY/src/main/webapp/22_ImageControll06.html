@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>22_ImageControll06.html</title>
+        <style>
+            #base{
+                position: relative;
+                width: 170px; height: 255px;
+                border: 1px solid blue;
+                left: 300px; overflow: hidden;
+            }
+            #view{
+                position: absolute;
+                width: 1700px; height: 255px;
+                left: 0; top: 0px;
+                border: 1px dashed red;
+                transition: 1s;
+            }
+        </style>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            // 1초에 그림 한 장씩 왼쪽으로 롤링합니다. 10번째에 다다르면 다시 첫 번재로 이동합니다.
+            var n = 1;
+            var ev;
+            $(function(){
+                $('#view').hover(
+                    function(){
+                        clearInterval(ev);
+                    },
+                    function(){
+                        ev = setInterval(function(){
+                            $('#view').css({left: (n * -170)});
+                            ++n;
+                            if(n == 10){
+                                n = 0;
+                            }
+                        }, 1000);
+                    }
+                );
+                $('#view').trigger("mouseout");
+            });
+        </script>
+    </head>
+    <body>
+        <div id="base">
+            <div id="view">
+                <img src="images/1.jpg"><img src="images/2.jpg"><img src="images/3.jpg"><img src="images/4.jpg"><img src="images/5.jpg"><img src="images/6.jpg"><img src="images/7.jpg"><img src="images/8.jpg"><img src="images/9.jpg"><img src="images/10.jpg">
+            </div>  
+        </div>
+    </body>
+</html>
