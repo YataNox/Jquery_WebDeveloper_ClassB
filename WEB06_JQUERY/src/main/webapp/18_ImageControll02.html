@@ -7,10 +7,16 @@
         <title>18_ImageControll02.html</title>
         <script src="script/jquery-3.6.0.js"></script>
         <script>
-            
+            // 그림을 클릭하면 숫자 하나를 입력 받아서 입력받은 숫자.jpg 그림으로 이미지를 바꿉니다.
+            $(function(){
+                $('img').click(function(){
+                    var num = prompt("숫자를 입력", "1");
+                    $(this).attr("src", 'images/' + num + '.jpg')
+                });
+            });
         </script>
     </head>
     <body>
-        
+        <img src="images/1.jpg">
     </body>
 </html>
