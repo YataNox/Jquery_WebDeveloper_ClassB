@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>14_TabMenu.html</title>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            .main_view{
+                position: relative;
+                width: 900px; height: 400px;
+                margin: 0 auto;
+            }
+            .menu_view{
+                position: relative;
+                width: 100%; height: 50px;
+            }
+            .menuall{
+                position: relative;
+                float: left;
+                width: 150px; height: 100%;
+                border-radius: 10px 10px 0px 0px;
+                text-align: center;
+                line-height: 50px;
+                font-weight: bold;
+                font-size: 120%;
+            }
+            .content_view{
+                position: relative;
+                width: 100%; height: 350px;
+            }
+            .contentall{
+                position: absolute;
+                top: 0px; left: 0px;
+                width: 100%; height: 350px;
+                text-align: center;
+                line-height: 350px;
+                font-weight: bold;
+                font-size: 120%;
+                display: none;
+            }
+        </style>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            var num = 0;
+            var color = ['burlywood','aqua','deepskyblue','darkseagreen','dimgrey','chocolate'];
+            $(function(){
+                $('.contentall').eq(num).show();
+                for(var i = color.length-1; i >= 0; i--)
+                {
+                    $('.menuall').eq(i).css('backgroundColor', color[i]);
+                    $('.contentall').eq(i).css('backgroundColor', color[i]);
+                }
+                $(".menuall").click(function(){
+                    $('.contentall').eq(num).hide();
+                    var i = $(this).index();
+                    num = i;
+                    $('.contentall').eq(i).show();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="main_view">
+            <div class="menu_view">
+                <div id="m1" class="menuall">Menu A</div>
+                <div id="m2" class="menuall">Menu B</div>
+                <div id="m3" class="menuall">Menu C</div>
+                <div id="m4" class="menuall">Menu D</div>
+                <div id="m5" class="menuall">Menu E</div>
+                <div id="m6" class="menuall">Menu F</div>
+            </div>
+            <div class="content_view">
+                <div id="c1" class="contentall">Content A</div>
+                <div id="c2" class="contentall">Content B</div>
+                <div id="c3" class="contentall">Content C</div>
+                <div id="c4" class="contentall">Content D</div>
+                <div id="c5" class="contentall">Content E</div>
+                <div id="c6" class="contentall">Content F</div>
+            </div>
+        </div>
+    </body>
+</html>
