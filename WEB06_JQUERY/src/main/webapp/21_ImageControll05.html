@@ -23,8 +23,8 @@
                 $('img').mouseenter(function(){
                     clearInterval(event1);
                 });
-                
-                $('img').mouseout(function(){
+
+                $('img').mouseover(function(){
                     event1 = setInterval(function(){
                         $('img').attr('src', imgall[n++]);
                         if(n == imgall.length){
