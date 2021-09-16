@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>23_ImageControll07.html</title>
+        <script src="script/jquery-3.6.0.js"></script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #view{
+                position: relative;
+                width: 940px; height: 200px;
+                margin: 0 auto;
+                text-align: center;
+                overflow: hidden;
+            }
+            .prod_V{
+                position: relative;
+                float: left;
+                width: 300px; height: 200px;
+                margin-right: 20px;
+            }
+            .prod_V:last-child{
+                margin-right: 0px;
+            }
+            .textView{
+                position: absolute;
+                background-color: gray;
+                width : 300px; height: 200px;
+                top: 200px;
+                font-size: 150%;
+                font-weight: bold;
+                opacity: 0.7;
+                transition: 1s;
+            }
+        </style>
+        <script>
+            $(function(){
+                $('.prod_V').hover(
+                    function(){
+                        var n = $(this).index();
+                        $(".textView").eq(n).css({top:0});
+                    },
+                    function(){
+                        $(".textView").css({top:200});   
+                    }
+                );
+            });
+        </script>
+    </head>
+    <body>
+        <div id="view">
+            <div class="prod_V">
+                <img src="images/prod1.jpg">
+                <div class="textView">
+                    <p>상품1</p>
+                </div>
+            </div>
+            <div class="prod_V">
+                <img src="images/prod2.jpg">
+                <div class="textView">
+                    <p>상품2</p>
+                </div>
+            </div>
+            <div class="prod_V">
+                <img src="images/prod3.jpg">
+                <div class="textView">
+                    <p>상품3</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
