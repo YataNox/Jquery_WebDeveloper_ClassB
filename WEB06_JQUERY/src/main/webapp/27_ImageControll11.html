@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>27_ImageControll11.html</title>
+        <style>
+            *{
+            margin: 0;
+            padding: 0;
+        }
+        #base{
+            position: relative;
+            width: 600px; height: 400px;
+            margin: 0 auto;
+            border: 1px dashed black;
+            overflow: hidden;
+        }
+        #view{
+            position: absolute;
+            width: 4800px; height: 400px;
+            left: 0; top: 0;
+            border: 1px dashed red; 
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        img{
+            width: 600px; height: 400px;
+        }
+        #remot{
+            position: relative;
+            width: 320px; height: 50px;
+            border: 1px solid white;
+            margin: 0 auto;
+            top: 350px;
+        }
+        #remot ul{
+            position: relative;
+            float: left;
+            list-style: none;
+            margin: 0px; padding: 0px;
+        }
+        #remot ul li{
+            float: left;
+            width: 18px; height: 18px;
+            background-color: white;
+            margin: 18px 5px;
+            text-align: center;
+            font-size: 80%;
+            font-weight: bold;
+        }
+        </style>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            $(function(){
+                var ev;
+                var n = 600;
+                var stop = false;
+                $('li').eq(0).click(function(){
+                    if(n >= 0){
+                        n = -4200;
+                    }
+                    $('#view').css({left:n});
+                    n += 600;
+                });
+                $('li').eq(9).click(function(){
+                    $('#view').css({left:n});
+                    if(n == -4200){
+                        n = 0;
+                    }else{
+                        n -= 600;
+                    }
+                });
+                $('.numm').click(function(){
+                    clearInterval(ev);
+                    var i = $(this).index();
+                     n = (i-1) * -600;
+                     $('#view').css({left:n});
+                     ev = setInterval(function(){
+                        $('#view').css({left:n});
+                        n -= 600;
+                        if(n <= -4200)
+                        {
+                            n = 0;
+                        }
+                    },1000);
+                });
+                $('li').eq(10).click(function(){
+                    if(stop){
+                        $(this).text("■");
+                        ev = setInterval(function(){
+                            n -= 600;
+                            $('#view').css({left:n});
+                            if(n <= -4200)
+                            {
+                                n = 600;
+                            }
+                        },1000);
+                        stop = !stop;
+                    }
+                    else{
+                        $(this).text("▶");
+                        clearInterval(ev);
+                        stop = !stop;
+                    }
+                });
+                $('li').eq(10).trigger("mouseout");
+            });
+        </script>
+    </head>
+    <body>
+        <div id="base">
+            <div id="view">
+                <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img src="images/Tulips.jpg">
+            </div>
+            <div id="remot">
+                <ul>
+                    <li>&lt;</li>
+                    <li class="numm">1</li>
+                    <li class="numm">2</li>
+                    <li class="numm">3</li>
+                    <li class="numm">4</li>
+                    <li class="numm">5</li>
+                    <li class="numm">6</li>
+                    <li class="numm">7</li>
+                    <li class="numm">8</li>
+                    <li>&gt;</li>
+                    <li>■</li> <!-- ▶■ -->
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
