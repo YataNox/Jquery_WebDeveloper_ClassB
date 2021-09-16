@@ -52,12 +52,19 @@
         <script src="script/jquery-3.6.0.js"></script>
         <script>
             $(function(){
+                var n = 0;
                 $('li').click(function(){
-                    var n = $(this).index();
+                    $('li').css({"backgroundColor":"white"});
+                    n = $(this).index();
                     n = -600 * n;
+                    $(this).css({"backgroundColor":"darkgray"});
                     $('#view').animate({left:n}, 100);
                 });
             });
+            // 현재 예제에 리모컨 하나를 클릭하면 리모컨 버튼 색깔이 짙은 회색(색은 자유롭게 선택)
+            // 으로 변경되며 현재 이미지가 몇 번째인지 확인 할 수 있게 코드를 추가해주세요
+            // 다른 버튼을 누르면 이전 변했던 버튼 색은 다시 흰색으로 돌아갑니다.
+            // css 변경코드를 사용해도 되고, addClass 함수를 이용하셔도 됩니다.
         </script>
     </head>
     <body>
