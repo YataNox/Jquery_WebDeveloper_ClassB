@@ -56,46 +56,53 @@
             $(function(){
                 var ev;
                 var n = 600;
-                var stop = false;
-                $('li').eq(0).click(function(){
-                    if(n >= 0){
-                        n = -4200;
+                var stop = true;
+                var po = $("#view").css("left");
+                po = po.substring(0, po.length-2);
+                $('li').eq(0).click(function(){ 
+                    if(!stop){
+                        clearInterval(ev);
+                        $('li').eq(10).text("▶");
+                        stop = !stop;
                     }
-                    $('#view').css({left:n});
-                    n += 600;
+
+                    if(po == 0){
+                        po = -4800;
+                    }
+                    po = po + n;
+                    $('#view').css({left:po});
                 });
+
                 $('li').eq(9).click(function(){
-                    $('#view').css({left:n});
-                    if(n == -4200){
-                        n = 0;
-                    }else{
-                        n -= 600;
+                    if(!stop){
+                        clearInterval(ev);
+                        $('li').eq(10).text("▶");
+                        stop = !stop;
                     }
+
+                    if(po == -4200){
+                        po = 600;
+                    }   
+                    po = po - n;
+                    $('#view').css({left:po});
                 });
+
                 $('.numm').click(function(){
-                    clearInterval(ev);
                     var i = $(this).index();
-                     n = (i-1) * -600;
-                     $('#view').css({left:n});
-                     ev = setInterval(function(){
-                        $('#view').css({left:n});
-                        n -= 600;
-                        if(n <= -4200)
-                        {
-                            n = 0;
-                        }
-                    },1000);
+                     po = (i-1) * -600;
+                     $('#view').css({left:po});
                 });
+                
                 $('li').eq(10).click(function(){
                     if(stop){
                         $(this).text("■");
                         ev = setInterval(function(){
-                            n -= 600;
-                            $('#view').css({left:n});
-                            if(n <= -4200)
+                            if(po <= -4200)
                             {
-                                n = 600;
+                                po = 600;
                             }
+                            po -= n;
+                            $('#view').css({left:po});
                         },1000);
                         stop = !stop;
                     }
@@ -105,7 +112,7 @@
                         stop = !stop;
                     }
                 });
-                $('li').eq(10).trigger("mouseout");
+                $("li").eq(10).trigger("click");
             });
         </script>
     </head>
