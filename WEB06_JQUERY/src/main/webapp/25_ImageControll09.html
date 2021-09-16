@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>25_ImageControll09.html</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #base{
+                position: relative;
+                width: 600px; height: 400px;
+                margin: 0 auto;
+                border: 1px dashed black;
+                overflow: hidden;
+            }
+            #view{
+                position: absolute;
+                width: 4800px; height: 400px;
+                left: 0; top: 0;
+                border: 1px dashed red; 
+                overflow: hidden;
+                transition: 0.3s;
+            }
+            img{
+                width: 600px; height: 400px;
+            }
+            #lbtn{
+                position: absolute; left: 0px; bottom: 0px;
+                width: 50px;height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                background-image: url(images/ico_movie_171115.png);
+                background-position: -60px -460px;
+            }
+            #rbtn{
+                position: absolute; right: 0px; bottom: 0px;
+                width: 50px;height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                background-image: url(images/ico_movie_171115.png);
+                background-position: 0px -460px;
+            }
+        </style>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            $(function(){
+                var n = 0;
+                $('#lbtn').click(function(){
+                    if(n == 0){
+                        n = 0;
+                    }else{
+                        n += 600;
+                    }
+                    $('#view').css({left:n});
+                });
+                $('#rbtn').click(function(){
+                    if(n == -4200){
+                        n = -4200;
+                    }else{
+                        n -= 600;
+                    }
+                    $('#view').css({left:n});
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="base">
+            <div id="view">
+                <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg"><img src="images/Penguins.jpg"><img src="images/Tulips.jpg">
+            </div>
+             <div id="lbtn"></div>
+             <div id="rbtn"></div>
+        </div>
+    </body>
+</html>
