@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>29_PageMove.html</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #base{
+                position: relative;
+                width: 600px; height: 400px;
+                margin: 0 auto;
+                border: 1px dashed black;
+                overflow: hidden;
+            }
+            #view{
+                position: absolute;
+                width: 1800px; height: 800px;
+                left: 0; top: 0;
+                border: 1px dashed red; 
+                overflow: hidden;
+                transition: 0.3s;
+            }
+            img{
+                width: 600px; height: 400px;
+            }
+            #remot{
+                position: absolute;
+                right: 0; top: 50px;
+            }
+            #remot ul{
+                position: relative;
+                list-style: none;
+                margin: 0px; padding: 0px;
+            }
+            #remot ul li{
+                width: 30px; height: 30px;
+                background-color: white;
+                color: black;
+                text-align: center;
+                font-weight: bold;
+                font-size: 120%;
+                margin: 10px 0px;
+                line-height: 30px;
+            }
+        </style>
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            $(function(){
+                $('li').click(function(){
+                    var liIndex = $(this).index();
+                    var posX = ((liIndex)%3) * -600;
+                    if(liIndex < 3){
+                        var posY = 0;
+                    }
+                    else{
+                        var posY = -400;
+                    }
+                    $('#view').animate({left:posX, top:posY});
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="base">
+            <div id="view">
+                    <img src="images/Koala.jpg"><img src="images/Chrysanthemum.jpg"><img src="images/Desert.jpg"><img src="images/Hydrangeas.jpg"><img src="images/Jellyfish.jpg"><img src="images/Lighthouse.jpg">
+            </div>
+            <div id="remot">
+                <ul>
+                    <li class="select">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
