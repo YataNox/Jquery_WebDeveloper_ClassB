@@ -61,6 +61,9 @@
                     }
                     po -= n;
                     $('#view').css({left:po});
+                    // 보여지는 이미지의 버튼의 색 변경
+                    $('.numm').css({'backgroundColor':'white'});
+                    $('.numm').eq(-(po/n)).css({'backgroundColor':'darkgray'});
                 }
                 var n = 600; // 이미지의 가로 크기, 이동할 한 칸의 크기
                 var imgCount = $('li').last().index()-2;
@@ -115,8 +118,11 @@
                 $('.numm').click(function(){
                     // 숫자 버튼의 인덱스 값을 받아 이동할 값 계산 후 값만 큼 이동
                     var i = $(this).index();
-                     po = (i-1) * -600;
-                     $('#view').css({left:po});
+                    $('.numm').css({'backgroundColor':'white'});
+                    $(this).css({'backgroundColor':'darkgray'});
+
+                    po = (i-1) * -600;
+                    $('#view').css({left:po});
                 });
                 
                 /* 롤링/중지 버튼 */
@@ -145,7 +151,7 @@
             <div id="remot">
                 <ul>
                     <li>&lt;</li>
-                    <li class="numm">1</li>
+                    <li class="numm" style="background-color: darkgray;">1</li>
                     <li class="numm">2</li>
                     <li class="numm">3</li>
                     <li class="numm">4</li>
