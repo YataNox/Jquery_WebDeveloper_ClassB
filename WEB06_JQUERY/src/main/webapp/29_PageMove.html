@@ -49,21 +49,7 @@
             }
         </style>
         <script src="script/jquery-3.6.0.js"></script>
-        <script>
-            $(function(){
-                $('li').click(function(){
-                    var liIndex = $(this).index();
-                    var posX = ((liIndex)%3) * -600;
-                    if(liIndex < 3){
-                        var posY = 0;
-                    }
-                    else{
-                        var posY = -400;
-                    }
-                    $('#view').animate({left:posX, top:posY},300);
-                });
-            });
-        </script>
+        <script src="script/script.js"></script>
     </head>
     <body>
         <div id="base">
