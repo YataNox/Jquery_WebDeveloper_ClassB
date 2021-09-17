@@ -59,6 +59,15 @@
         }
         document.write(person.name, "<br>");
         person.eat("스파게티");
+
+        // - this 키워드 : 자바스크립트의 멤버 함수에서 멤버 변수에 접근할 때는 this 키워드를 생략할 수 없습니다.
+        var person = {
+            name:'홍길동',
+            eat:function(food){
+                document.write(this.name + "이(가) " + food + "을(를) 먹었습니다.", "<br>");
+            }
+        }
+        person.eat('김밥');
     </script>
 </head>
 <body>
