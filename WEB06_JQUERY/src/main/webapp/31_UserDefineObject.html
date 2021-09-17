@@ -36,7 +36,7 @@
         // 2. 객체의 속성과 메도스
         // - 속성 : 객체 내부에 잇는 하나하나의 값.
         // - 객체의 속성이 가질 수 있는 자료형.
-        var Object = {
+        /* var Object = {
             useNumber : 273,
             useString : "문자열",
             useBoolean: true,
@@ -67,7 +67,72 @@
                 document.write(this.name + "이(가) " + food + "을(를) 먹었습니다.", "<br>");
             }
         }
-        person.eat('김밥');
+        person.eat('김밥'); */
+
+        /* --------------------------------------------------------------------------------------------- */
+        /* // 3. 객체와 반복문
+        var product = {
+            name : 'Eclipse & Tomcat',
+            price : 'Free',
+            language : '한국어',
+            supportOS : 'win32/64',
+            subcripton : true
+        };
+        var output = '';
+        for(var k in product){ // 객체 내의 멤버 필드들이 k변수에 전달-반복실행
+            // 객체명[필드명]으로 필드 값을 얻어냅니다.
+            output += "※ " + k + " : " + product[k] + "<br>"; 
+        }
+        document.write(output);
+        // for(var k in 배열 또는 객체) 반복문의 반복하는 요소로 , 배열이 지정되면 인덱스들이 k에
+        // 차례로 할당되면 반복 실행을 진행하고, 객체가 지정되면 멤버변수의 이름들이 k에 차례로 할당되며 반복을 진행합니다. */
+
+        /* --------------------------------------------------------------------------------------------- */
+
+        /* // 4. 객체와 관련된 키워드
+        var student = {
+            이름 : "홍길동",
+            국어 : 92,
+            수학 : 98,
+            영어 : 96,
+            과학 : 98
+        };
+        // - in 키워드 : 해당 키(멤버변수)가 객체 안에 있는지 확인
+        var output = '';
+        output += "'이름' in student : " + ('이름' in student) + '<br>';
+        output += "'국어' in student : " + ('국어' in student) + '<br>';
+        output += "'수학' in student : " + ('수학' in student) + '<br>';
+        output += "'영어' in student : " + ('영어' in student) + '<br>';
+        output += "'과학' in student : " + ('과학' in student) + '<br>';
+        output += "'성별' in student : " + ('성별' in student);
+        document.write(output); */
+        /* --------------------------------------------------------------------------------------------- */
+
+        /* // - widh 키워드 : 복잡하게 사용해야 하는 코드를 짧게 줄여주는 키워드.
+        var student = {이름 : "홍길동",
+            국어 : 92,
+            수학 : 98,
+            영어 : 96,
+            과학 : 98
+        }
+        // . with 키워드를 사용하지 않은 경우
+        var output = '';
+        output += "'이름' : " + student.이름 + '<br>';
+        output += "'국어' : " + student.국어 + '<br>';
+        output += "'수학' : " + student.수학 + '<br>';
+        output += "'영어' : " + student.영어 + '<br>';
+        output += "'과학' : " + student.과학 + '<br>';
+        document.write(output);
+        // . with 키워드를 사용한 경우
+        output = '';
+        with(student){
+            output += "'이름' : " + 이름 + '<br>';
+            output += "'국어' : " + 국어 + '<br>';
+            output += "'수학' : " + 수학 + '<br>';
+            output += "'영어' : " + 영어 + '<br>';
+            output += "'과학' : " + 과학 + '<br>';
+        }
+        document.write(output); */
     </script>
 </head>
 <body>
