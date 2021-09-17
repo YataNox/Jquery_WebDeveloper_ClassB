@@ -5,71 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>28_Select.html</title>
-        <style>
-            #base{
-                position: relative;
-                width: 500px; height: 300px;
-                border: 1px solid black;
-            }
-            #title{
-                position: relative; width: 100px; height: 30px;
-                border: 1px solid gray;
-                left: 100px; top: 50px;
-                line-height: 30px;
-                font-size: 120%; font-weight: bold;
-            }
-            #num{
-                position: absolute;
-                width: 73px; height: 30px;
-                top: 0px; left: 0px;
-                /* border: 1px dashed red; */
-            }
-            #arrow{
-                position: absolute;
-                width: 23px; height: 30px;
-                /* border: 1px dashed blue; */
-                right: 0px; top: 0px;
-                background-image:url(images/ico_movie_171115.png);
-                background-position: -277px -320px;
-            }
-            #dropmenu{
-                position: absolute;
-                width: 300px; height: 250px;
-                top: 80px; left: 100px;
-                border: 1px solid black;
-                box-shadow: 2px 2px 5px gray;
-                background-color: white;
-                overflow-y: scroll; overflow-x: hidden;
-                display:none;
-                /* visibility: hidden;  */
-            }
-            #dropmenu div{
-                font-weight: bold;
-                height: 45px; width: 100%;
-                /* border: 1px dashed red; */
-                line-height: 45px;
-            }
-            #dropmenu div:hover{
-                background-color: #AAAAAA;
-            }
-        </style>
+        <link rel="stylesheet" href="css/28_Select.css">
         <script src="script/jquery-3.6.0.js"></script>
-        <script>
-            $(function(){
-                $('#arrow').click(function(){
-                    $('#dropmenu').slideDown();
-                });
-                $('.dropdiv').click(function(){
-                    var text = $(this).text().trim();
-                    text = text.substring(0,3);
-                    /* var num = $(this).html();
-                    var blank = num.indexOf(' ');
-                    num  = num.substring(0, blank); */
-                    $("#num").text(text);
-                    $('#dropmenu').slideUp();
-                });
-            });
-        </script>
+        <script src="script/28_Select.js"></script>
     </head>
     <body>
         <div id="base">
