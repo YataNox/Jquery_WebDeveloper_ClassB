@@ -57,13 +57,13 @@
         <script>
             $(function(){
                 $('#arrow').click(function(){
-                    $('#dropmenu').show();
+                    $('#dropmenu').slideDown();
                 });
                 $('.dropdiv').click(function(){
                     var text = $(this).text().trim();
                     text = text.substring(0,3);
                     $("#num").text(text);
-                    $('#dropmenu').hide();
+                    $('#dropmenu').slideUp();
                 });
             });
         </script>
