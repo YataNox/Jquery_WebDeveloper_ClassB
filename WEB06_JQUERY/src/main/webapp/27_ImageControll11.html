@@ -56,14 +56,14 @@
             $(function(){
                 var ev; // 이벤트 반복실행 저장 변수
                 var e = function(){ // 반복실행할 함수 변수
-                    if(po <= -4200)
-                    {
-                        po = 600;
+                    if(po <= -4200){
+                        po = n;
                     }
                     po -= n;
                     $('#view').css({left:po});
                 }
-                var n = 600; // 이동할 한 칸의 크기
+                var n = 600; // 이미지의 가로 크기, 이동할 한 칸의 크기
+                var imgCount = $('li').last().index()-2;
                 var stop = true; // 롤링 여부
                 var po = $("#view").css("left"); // 현재 view이 보여주는 화면 값 (ex: 0px)
                 po = po.substring(0, po.length-2); // view값의 px를 뺀 숫자 값만 취하기
@@ -78,7 +78,7 @@
                     }
                     // 보여지는 사진이 마지막 8번 이미지 일 경우 1번으로 갈 수 있게 조정
                     if(po == 0){
-                        po = -4800;
+                        po = -n * imgCount;
                     }
                     // 한 칸 이동
                     po = po + n;
@@ -99,7 +99,7 @@
                     }
 
                     if(po == -4200){
-                        po = 600;
+                        po = n;
                     }   
                     po = po - n;
                     $('#view').css({left:po});
