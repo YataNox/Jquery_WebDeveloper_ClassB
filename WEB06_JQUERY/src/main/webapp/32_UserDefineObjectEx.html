@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>32_UserDefineObjectEx.html</title>
+        <link rel="stylesheet" href="css/32_UserDefineObjectEx.css">
+        <script src="script/jquery-3.6.0.js"></script>
+        <script>
+            // 배열을 만들고 16개의 기사를 사진 경로, 기사제목, 언론사 세 개를 하나의 객체로 만들며, 그를 배열에 넣습니다.
+            // 배열의 값을 반복 실행을 이용해서 태그와 함께 들어갈 내용을 만들고, 이를 view에 append로 넣어주세요.
+            // 좌우 버튼을 만들어 8개의 기사가 옮겨지며 화면 나타나도록 작성해주세요.
+            // 다음 로고 라인과 메뉴라인은 작성하지 않아도 됩니다.
+            $(function(){
+                function news(imglink, title, newCompany){
+                    this.imglink = imglink;
+                    this.title = title;
+                    this.newCompany = newCompany;
+                    this.imgc = function(){
+                        var imgs = document.createElement('img');
+                        imgs.setAttribute("src", this.imglink);
+                        return imgs;
+                    };
+                    this.titlec = function(){
+                        var texts = document.createElement('div');
+                        texts.setAttribute("class", 'title');
+                        var txt = document.createTextNode(this.title);
+                        texts.append(txt);
+                        return texts;
+                    }
+                    this.newC = function(){
+                        var texts = document.createElement('div');
+                        texts.setAttribute("class","newC");
+                        var txt = document.createTextNode(this.newCompany);
+                        texts.append(txt);
+                        return texts;
+                    }
+                    this.divc = function(){
+                        var divs = document.createElement("div");
+                        divs.setAttribute("class", "news1");
+                        divs.append(this.imgc());
+                        divs.append(this.titlec());
+                        divs.append(this.newC());
+                        return divs;
+                    }
+                } 
+                
+                var Dnews = [];
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202108%2F31%2FNEWS1%2F20210831161332547pvdc.jpg&scode=media", "'인생 걸었다'..'고끝밥' 문세윤 조세호 황제성 장재준, 82년생의...", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202108%2F31%2Fspotvnews%2F20210831154034372says.jpg&scode=media", "거미, '랄라랜드' 출격.. 초호화 코치라인업 추가", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202108%2F31%2Fspotvnews%2F20210831151602790ryyd.jpg&scode=media", "장성규, 펜트하우스3 마지막회 출현.. 시즌2 이어 두 번째", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=http%3A%2F%2Ft1.kakaocdn.net%2Fkakaotv%2FASSET%2Fwarhol_asset%2Fvod_thumbnail%2F3dbd21dab1640a56430014cf3e4e0f61c5aeaa9d&scode=media", "야 일어나... 정신 좀 차려봐! 정수정-진영 술주정..", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202109%2F23%2Fspotvnews%2F20210923151601572ocyh.jpg&scode=media", "김재욱X정수정 '크레이지 러브', KBS2 월화 라인업..2022년 2월 방송", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202109%2F23%2Fspotvnews%2F20210923142740861grzw.jpg&scode=media", "전지현, 남편과 송도서 다정한 '부부 데이트'..'이혼설' 날렸다", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202109%2F23%2Ftvdaily%2F20210923120717782desu.jpg&scode=media", "'라디오쇼' 박명수, '늦둥이 아빠' 김구라 축하 ", "티브이데일리"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Fthumb.kakaocdn.net%2Fdna%2Fkamp%2Fsource%2Frvj4v52v64po87w7e93eeev4v%2Fthumbs%2Fthumb.jpg%3Fcredential%3DTuMuFGKUIcirOSjFzOpncbomGFEIdZWK%26expires%3D33189292518%26signature%3DjJcP7cor8kt8YYBdZBdEs0LSP2I%253D&scode=media", "[연애도사2 예고] 6회 예고 ㅣ연애 젬병 송해나의 연애는 나쁜 남자와의 전쟁이었다?ㅣSBS PLUS 210927 방송", "연예도사 시즌2"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202108%2F31%2Fspotvnews%2F20210831143410975ycnh.jpg&scode=media", "이태곤, '편먹고 공처리' 출격.. 남다른 구력+예능감 기대", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202108%2F31%2Fpoctan%2F20210831141117602nkvi.jpg&scode=media", "에이핑크 오하영, 9월 깜짝 컴백,.. 컬레버 신곡 발표", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202108%2F31%2Fstarnews%2F20210831161436823gftr.jpg&scode=media", "공효진, 신예능 공공랜드 출연.. 이천희 전혜진 부부 출격..", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fsection%2Foc%2Ff8848b22bb21465f9ff09f0098899278&scode=media", "한 때 지겨웠지만 다시보고 싶은 그 예능", "스포티비뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202109%2F23%2Ftvdaily%2F20210923151917957rwrk.jpg&scode=media", "'컬투쇼' 김태균 홍석천, 지상렬x왁스 연결해 주려 했었다", "티브이데일리"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202109%2F23%2Fsportstoday%2F20210923151805263xjzd.jpg&scode=media", "'컬투쇼' 이기찬 신곡 '원룸' 작사 전소민, 지석진이 부를 뻔", "스포츠투데이"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fnews%2F202109%2F23%2Fstarnews%2F20210923154825098rxyv.jpg&scode=media", "홍자, 스타랭킹 9월 3주차 3위..식지 않는 뜨거운 인기", "스타뉴스"));
+                Dnews.push(new news("https://img1.daumcdn.net/thumb/S264x148ht.u/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fsection%2Foc%2Fb3d5e0636d254bff856d57a885a39db2&scode=media", "예능나와서 '원샷' 욕심만 내는 '리틀 한채영'", "삶은영화"));
+
+                
+
+                $('#view').append('<div class="top">');
+                for(var i = 0; i < 8; i++)
+                {
+                    $('.top').append(Dnews[i].divc());
+                }
+                $('#view').append('<div class="bottom">');
+                for(var i = 8; i < 16; i++)
+                {
+                    $('.bottom').append(Dnews[i].divc());
+                }
+                var position = 0;
+                $('#rbtn').click(function(){
+                    position -= 1200;
+                    if(position == -2400){
+                        position = 0;
+                    }
+                    $('.top').animate({left:position}, 500);
+                    $('.bottom').animate({left:position}, 500);
+                });
+                $('#lbtn').click(function(){
+                    position += 1200;
+                    if(position == 1200)
+                    {
+                        position = -1200;
+                    } 
+                    $('.top').animate({left:position}, 500);
+                    $('.bottom').animate({left:position}, 500);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="base">
+            <div id="lbtn"></div>
+            <div id="view">
+              
+            </div>
+            <div id="rbtn"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+#base{
+    position: relative;
+    width: 1300px; height: 570px;
+    margin: 0 auto;
+}
+#view{
+    position: relative;
+    float: left;
+    width: 1198px; height: 570px;
+    border: 1px solid black;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#base #lbtn{
+    position: relative;	width: 50px; height: 50px;
+    float: left;
+    top: 260px;
+    border-radius: 50%;
+    background-image: url(../images/ico_movie_171115.png);
+    background-position: -60px -461px;
+}
+#base #rbtn{
+    position: relative;	width: 50px; height: 50px;
+    float: left;
+    top: 260px;
+    border-radius: 50%;
+    background-image: url(../images/ico_movie_171115.png);
+    background-position: 0px -461px;
+}
+#view img{
+    position: relative;
+    width: 265px; height: 150px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+#view .top{
+    position: relative;
+    width: 200%; height: 270px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+#view .bottom{
+    position: relative;
+    width: 200%; height: 270px;
+    overflow: hidden;
+}
+#view .top .title{
+    position: relative;
+    width: 245px; height: 70px;
+    font-size: 105%; 
+    color: #565656;
+    padding: 10px;
+}
+#view .bottom .title{
+    position: relative;
+    width: 245px; height: 70px;
+    font-size: 105%; 
+    color: #565656;
+    padding: 10px;
+}
+.newC{
+    position: relative;
+    font-size: 90%; 
+    color: #565656;
+    height: 30px;
+    line-height: 30px;
+}
+.news1{
+    float: left;
+    margin-right: 46px;
+}
+.news1:nth-child(4n){
+    margin-right: 0px;            
+}
