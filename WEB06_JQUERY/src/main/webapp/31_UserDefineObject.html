@@ -185,6 +185,11 @@
         stds.push(new Student('김길동', 65, 60, 75, 80));
         stds.push(new Student('이길동', 75, 95, 85, 90));
         stds.push(new Student('박길동', 90, 80, 75, 90));
+        
+        var output = '<br>&nbsp;&nbsp;이름&nbsp;&nbsp;&nbsp;총점&nbsp;&nbsp;&nbsp;평균<br>';
+        for(var i in stds)
+            output += stds[i].toString() + '<br>';
+        document.write(output);
     </script>
 </head>
 <body>
